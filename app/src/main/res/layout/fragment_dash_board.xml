@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ android:background="#F2F2F2"
+    tools:context=".DashBoard">
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:gravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <androidx.cardview.widget.CardView android:layout_margin="10dp"
+           xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="match_parent"
+           android:layout_height="100dp"
+           app:cardCornerRadius="10dp"
+           xmlns:app="http://schemas.android.com/apk/res-auto">
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <TextView
+                  android:id="@+id/tvTitle"
+                   android:fontFamily="@font/gilroy_bold"
+                   android:textColor="@color/black"
+                   android:layout_centerInParent="true"
+                   android:text="Total Balance"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:id="@+id/tvBalance"
+                   android:fontFamily="@font/font_gilroy_bold"
+                   android:textColor="@color/black"
+                   android:layout_centerHorizontal="true"
+                   android:layout_below="@id/tvTitle"
+                   android:text="NaN"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+           </RelativeLayout>
+
+       </androidx.cardview.widget.CardView>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="139dp">
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/cardView"
+               android:layout_width="160dp"
+               android:layout_height="113dp"
+               android:layout_margin="10dp"
+               app:cardCornerRadius="10dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.019"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_bias="0.0"
+               tools:ignore="UnknownId">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+                   <ImageView
+                       android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       android:layout_alignParentEnd="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_margin="20dp"
+                       android:src="@drawable/ic_up_arrow" />
+
+                   <TextView
+                       android:id="@+id/titleIncome"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerInParent="true"
+                       android:fontFamily="@font/gilroy_bold"
+                       android:text="Total Income"
+                       android:textColor="@color/black" />
+
+                   <TextView
+                       android:id="@+id/tvIncome"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/titleIncome"
+                       android:layout_centerHorizontal="true"
+                       android:fontFamily="@font/font_gilroy_bold"
+                       android:text="NaN"
+                       android:textColor="@color/black" />
+               </RelativeLayout>
+
+           </androidx.cardview.widget.CardView>
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="164dp"
+
+               android:layout_height="114dp"
+               android:layout_margin="10dp"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               app:cardCornerRadius="10dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.8"
+               app:layout_constraintStart_toEndOf="@+id/cardView"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_bias="0.0">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+                   <ImageView
+                       android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       android:layout_alignParentEnd="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_margin="20dp"
+                       android:src="@drawable/ic_down_arrow" />
+
+                   <TextView
+                       android:id="@+id/titleExpense"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerInParent="true"
+                       android:fontFamily="@font/gilroy_bold"
+                       android:text="Total Expense"
+                       android:textColor="@color/black" />
+
+                   <TextView
+                       android:id="@+id/tvExpense"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/titleExpense"
+                       android:layout_centerHorizontal="true"
+                       android:fontFamily="@font/font_gilroy_bold"
+                       android:text="NaN"
+                       android:textColor="@color/black" />
+               </RelativeLayout>
+
+           </androidx.cardview.widget.CardView>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+       <TextView
+           android:layout_margin="20dp"
+           android:textStyle="bold"
+           android:fontFamily="@font/gilroy_bold"
+           android:textColor="@color/black"
+           android:text="Recent Transaction"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+       <androidx.recyclerview.widget.RecyclerView
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+           android:id="@+id/rvTransaction"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           tools:listitem="@layout/transaction_layout"/>
+    </androidx.core.widget.NestedScrollView>
+       </LinearLayout>
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.example.expensetrackerapp.room.TransactionDb" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/typeImage"
+                android:layout_width="33dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_dashboard" />
+
+            <TextView
+                android:text="@{transaction.title}"
+                tools:text="Cashback Offers"
+                android:id="@+id/title"
+                android:fontFamily="@font/gilroy_bold"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="@{transaction.tags}"
+                android:id="@+id/type"
+                android:fontFamily="@font/fontsfree_net_gilory"
+                tools:text="Entertainment"
+                android:textColor="@color/black"
+                android:layout_below="@+id/title"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text='@{String.format("Rs. %s",transaction.amount)}'
+                android:layout_alignParentEnd="true"
+                android:id="@+id/amountColor"
+                android:textColor="#008000"
+                tools:text="+Rs 250"
+                android:fontFamily="@font/gilroy_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:text="@{transaction.date}"
+                tools:text="Oct 21,2021"
+                android:layout_below="@id/amountColor"
+                android:textColor="@color/black"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/date"
+                android:fontFamily="@font/fontsfree_net_gilory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
